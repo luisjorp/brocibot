@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
-    const response = await backOff(() => fetch('http://localhost:5001', {
+    const response = await backOff(() => fetch('https://brocibot.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
