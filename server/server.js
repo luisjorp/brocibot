@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     res.status(200).send({
-        message: 'Hello from CodeX',
+        message: 'Hello from BrociBot',
     });
 });
 
