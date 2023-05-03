@@ -7,6 +7,10 @@ const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
 
+function retrieveContext() {
+    const context = sessionStorage.getItem("context");
+    return context ? context : "";
+}
 function loader(element) {
     element.textContent = ''
 
@@ -87,13 +91,21 @@ const handleSubmit = async (e) => {
     // messageDiv.innerHTML = "..."
     loader(messageDiv)
 
+    // Retrieve the previous context from the session storage
+    const context = retrieveContext();
+
+    // Generate a response using the input text and previous context
+    const prompt = `${context}\n${data.get('prompt')}`;
+
+    sessionStorage.setItem("context", `${prompt}`);
+
     const response = await backOff(() => fetch('https://brocibot.onrender.com/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: prompt,
         })
     }));
 
@@ -103,7 +115,9 @@ const handleSubmit = async (e) => {
     if (response.ok) {
         const data = await response.json();
         const parsedData = data.bot.trim() // trims any trailing spaces/'\n'
-
+        // Concat the generated response to the session storage
+        const context = retrieveContext();
+        sessionStorage.setItem("context", `${context}\n${parsedData}`);
         typeText(messageDiv, parsedData)
     } else {
         const err = await response.text()
