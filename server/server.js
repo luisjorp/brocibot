@@ -21,11 +21,11 @@ async function generateResponse(prompt) {
     const response = await openai.createCompletion({
         model: "text-davinci-003",
         prompt,
-        temperature: 0.7,
+        temperature: 0.5,
         max_tokens: 2048,
-        top_p: 0.8,
-        frequency_penalty: 0.4,
-        presence_penalty: 0.3,
+        top_p: 0.9,
+        frequency_penalty: 0.5,
+        presence_penalty: 0,
     });
 
     // Return the generated response text
