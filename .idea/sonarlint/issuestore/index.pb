@@ -12,10 +12,6 @@ A
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-@
-client/style.css,9/e/9e15d32ac365986010360324c7b86d738f022c83
-A
-client/index.html,0/f/0f416da26130c4b5a608cf3e939a70da2b426880
 C
 server/package.json,5/4/54e8f14248f674b305c14bde70fadbe1da1edb31
 H

@@ -22,7 +22,7 @@ async function generateResponse(prompt) {
         model: "text-davinci-003",
         prompt,
         temperature: 0.5,
-        max_tokens: 4096,
+        max_tokens: 2048,
         top_p: 0.9,
         frequency_penalty: 0.5,
         presence_penalty: 0,
@@ -52,7 +52,7 @@ app.post("/", async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).send({
-            error: e,
+            error: error,
         });
     }
 });
