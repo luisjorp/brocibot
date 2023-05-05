@@ -7,14 +7,19 @@
   font-family: "Alegreya Sans", sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background: rgb(67,77,129);
   background: radial-gradient(circle, rgba(67,77,129,1) 0%, rgba(66,49,52,1) 100%);
 }
 
 #app {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: rgb(67,77,129);
   background: radial-gradient(circle, rgba(67,77,129,1) 0%, rgba(66,49,52,1) 100%);
 
@@ -27,6 +32,7 @@ body {
 #chat_container {
   flex: 1;
   width: 100%;
+  min-height: 40%;
   height: 100%;
   overflow-y: scroll;
 
